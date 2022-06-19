@@ -10,12 +10,20 @@
          (2)显示当前系统时间
          (3)显示任意数字
     4.显示main文本中的保留字
-    5.模拟A和B的竞技比赛
+    5.模拟A和B的竞技比赛(引入天气、能力值、基础失误率等因素)
     6.读同一个页面中的多个URL
-    7.语法检测器  
+    7.语法检测器(可检查for、try_except、if_elif_else)  
  开发环境
  -
-    VScode, pythonIDLE
+    windows10 
+    VScode
+    pythonIDLE
+ 扩展库安装
+ -
+    pip install urlextract
+    pip install requests
+    pip install importlib
+    
  项目结构简介
  -
  ![image](UML.png)
