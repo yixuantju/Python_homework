@@ -1,0 +1,84 @@
+import myhash
+import Da_chinese
+import Draw_SevenDigiTube
+import time
+import Check_keyword
+import SportsSimulation
+
+def Show_menu():
+    global choose
+    print(''' 
+请选择你需要的功能：
+                 1.哈希函数
+                 2.写“大”字程序
+                 3.七段数码管显示
+                 4.显示main文本中的保留字
+                 5.模拟A和B的竞技比赛
+                 6.退出程序     ''')
+    choose=eval(input("请输入对应功能前的编号："))
+    
+def Show_menu_Draw(): 
+    global choose_next 
+    print(''' 
+请选择你需要的功能(默认字体为Arial，默认大小为1，默认颜色为黑)：
+                 1.显示输入的日期
+                 2.显示当前系统时间
+                 3.显示任意数字
+                 4.调整字体
+                 5.调整画笔格式
+                 6.返回主菜单     ''')
+    choose_next=eval(input("请输入对应功能前的编号："))
+
+def run():
+    fillcolor_in="black"
+    size_in=1
+    typeface_in="Arial"
+    while 1 :
+        try:  
+            Show_menu()
+            while choose==1:
+                myhash.Myhash()
+                break
+            while choose==2:
+                Da_chinese.Write_da_chinese()
+                break
+            while choose==3:
+                try:
+                    Show_menu_Draw()
+                    while choose_next==1:         
+                        Draw_SevenDigiTube.drawDate(fillcolor_in,typeface_in,size_in)
+                        break 
+                    while choose_next==2:
+                        Draw_SevenDigiTube.drawDate_Now(time.strftime('%Y-%m=%d+',time.gmtime()),fillcolor_in,typeface_in,size_in) 
+                        break 
+                    while choose_next==3:         
+                        Draw_SevenDigiTube.drawDigit_iso(fillcolor_in,size_in)
+                        break
+                    while choose_next==4:
+                        try:typeface_in=input("请输入字体类型：")
+                        except:print("输入错误，请输入字体类型：")
+                        break 
+                    while choose_next==5:
+                        try: size_in=eval(input("请输入数码管大小：") )
+                        except: print("输入错误，请输入表示大小的数值")
+
+                        try: fillcolor_in=input("请输入数码管颜色：") 
+                        except: print("输入错误，请输入颜色英文名称")
+                        break
+                    if choose_next==6:
+                        break
+                except: print("输入错误，请输入对应功能前的编号") 
+            while choose==4:
+                Check_keyword.Show_keyword()
+                break
+            while choose==5:
+                SportsSimulation.sportSim()
+                break
+            if choose==6:    
+                break 
+        except: print("输入错误，请输入对应功能前的编号")
+
+def main():
+    run()
+
+main()
